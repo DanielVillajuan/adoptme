@@ -3,7 +3,8 @@ import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import swaggerUiExpress from 'swagger-ui-express';
 import swaggerJsDoc from 'swagger-jsdoc';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
+dotenv.config()
 
 import usersRouter from './routes/users.router.js';
 import petsRouter from './routes/pets.router.js';
@@ -11,10 +12,9 @@ import adoptionsRouter from './routes/adoption.router.js';
 import sessionsRouter from './routes/sessions.router.js';
 import { addLogger, logger } from './utils/logger.js';
 import __dirname from './utils/index.js';
-dotenv.config()
+
 const app = express();
 const PORT = process.env.PORT || 8080;
-
 
 const connection = mongoose.connect(process.env.MONGO_URL).then(() => {
     logger.warning('Conectado a la base de datos => Mongo')
