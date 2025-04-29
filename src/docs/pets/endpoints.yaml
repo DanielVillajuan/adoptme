@@ -1,38 +1,5 @@
 paths:
-  /api/pets/:
-    get:
-      summary: Traer todas las mascotas
-      tags:
-        - Pets
-      responses:
-        "200":
-          description: "Se obtuvo todas las mascotas"
-          content:
-            application/json:
-              type: Array
-              schema:
-                $ref: "#/components/schemas/Pets"
-        "500":
-          description: "Ocurrio un error a nivel de base de datos"
   /api/pets/{uid}:
-    get:
-      summary: Obtiene una mascota
-      tags:
-        - Pets
-      parameters:
-        - name: uip
-          in: path
-          required: true
-          description: id de la mascota
-          schema:
-            $type: String
-      responses:
-        "200":
-          description: Mascota encontrada
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Pets"
     put:
       summary: Actualiza una Mascota
       tags:
