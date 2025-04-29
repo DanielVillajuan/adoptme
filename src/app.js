@@ -16,8 +16,11 @@ import __dirname from './utils/index.js';
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-const connection = mongoose.connect(process.env.MONGO_URL).then(() => {
+const connection = mongoose.connect(process.env.MONGO_URL, {
+    dbName: 'adoptme'
+}).then(() => {
     logger.warning('Conectado a la base de datos => Mongo')
+    logger.warning('Salio todo bien en la conexion!!!')
 })
 
 const swaggerOptions = {
